@@ -4,12 +4,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:;">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- SEO & Open Graph (Pour les aperçus LinkedIn, Twitter, Discord) -->
   <meta name="description"
     content="Portfolio de Doryan Schouver — Étudiant BUT Informatique DACS, spécialisé réseaux, cybersécurité et développement." />
+  <meta name="author" content="Doryan Schouver" />
+  <meta name="keywords"
+    content="Portfolio, Administrateur Système, Réseaux, DevOps, Cybersécurité, Doryan Schouver, BUT Informatique, Homelab" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1d1d1f" media="(prefers-color-scheme: dark)" />
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+
   <meta property="og:title" content="SCHOUVER Doryan — Portfolio" />
   <meta property="og:description" content="Découvrez mon parcours en Systèmes, Réseaux, et Développement (BUT DACS)." />
   <meta property="og:type" content="website" />
@@ -17,289 +27,8 @@
 
   <title>SCHOUVER Doryan — Portfolio</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            apple: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
-          },
-          colors: {
-            apple: {
-              blue: '#0071e3',
-              bluehov: '#0077ed',
-              text: '#1d1d1f',
-              secondary: '#6e6e73',
-              bg: '#f5f5f7',
-              white: '#ffffff',
-              dark: '#000000',
-              darkbg: '#1d1d1f',
-              darkcard: '#2c2c2e',
-              darksec: '#a1a1a6',
-            }
-          },
-          keyframes: {
-            fadeUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-          },
-          animation: {
-            'fade-up': 'fadeUp 0.8s ease forwards',
-            'fade-up-1': 'fadeUp 0.8s 0.15s ease forwards',
-            'fade-up-2': 'fadeUp 0.8s 0.3s ease forwards',
-            'fade-up-3': 'fadeUp 0.8s 0.45s ease forwards',
-            'fade-in': 'fadeIn 0.6s ease forwards',
-          },
-        }
-      }
-    }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
-
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
-    }
-
-    /* ── Scroll-reveal ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reveal-scale {
-      opacity: 0;
-      transform: scale(0.96);
-      transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.34, 1.3, 0.64, 1);
-    }
-
-    .reveal-scale.visible {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .reveal-delay-1 {
-      transition-delay: 0.08s;
-    }
-
-    .reveal-delay-2 {
-      transition-delay: 0.16s;
-    }
-
-    .reveal-delay-3 {
-      transition-delay: 0.24s;
-    }
-
-    .reveal-delay-4 {
-      transition-delay: 0.32s;
-    }
-
-    .reveal-delay-5 {
-      transition-delay: 0.40s;
-    }
-
-    /* ── Timeline ── */
-    .timeline-line {
-      background: linear-gradient(to bottom, #0071e3, transparent);
-    }
-
-    .dark .timeline-line {
-      background: linear-gradient(to bottom, #2997ff, transparent);
-    }
-
-    /* ── Gradient text ── */
-    .gradient-text {
-      background: linear-gradient(135deg, #0071e3 0%, #5856d6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .dark .gradient-text {
-      background: linear-gradient(135deg, #2997ff 0%, #7b7bff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* ── Scrollbar ── */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #c7c7cc;
-      border-radius: 3px;
-    }
-
-    .dark ::-webkit-scrollbar-thumb {
-      background: #48484a;
-    }
-
-    /* ── Nav underline ── */
-    .nav-link {
-      position: relative;
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: #0071e3;
-      transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    /* ── Header frosted glass on scroll ── */
-    .header-scrolled {
-      background: rgba(255, 255, 255, 0.85);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    }
-
-    .dark .header-scrolled {
-      background: rgba(29, 29, 31, 0.85);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    /* ── Animations ── */
-    @keyframes pulse-dot {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.35;
-      }
-    }
-
-    .pulse-dot {
-      animation: pulse-dot 2s infinite;
-    }
-
-    @keyframes gradient-shift {
-
-      0%,
-      100% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-    }
-
-    .animate-gradient {
-      background-size: 200% 200%;
-      animation: gradient-shift 6s ease infinite;
-    }
-
-    @keyframes float-gentle {
-
-      0%,
-      100% {
-        transform: translateY(0px);
-      }
-
-      50% {
-        transform: translateY(-6px);
-      }
-    }
-
-    .float-gentle {
-      animation: float-gentle 4s ease-in-out infinite;
-    }
-
-    @keyframes glow-pulse {
-
-      0%,
-      100% {
-        opacity: 0.5;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 0.8;
-        transform: scale(1.05);
-      }
-    }
-
-    .glow-pulse {
-      animation: glow-pulse 3s ease-in-out infinite;
-    }
-
-    /* ── Cards ── */
-    .card-hover {
-      transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.35s ease;
-    }
-
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-    }
-
-    .exp-card {
-      transition: transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.35s ease;
-    }
-
-    .exp-card:hover {
-      transform: scale(1.025) translateY(-3px);
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.13);
-    }
-
-    /* ── Skill chip micro-hover ── */
-    .skill-chip {
-      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, border-color 0.2s ease;
-    }
-
-    .skill-chip:hover {
-      transform: scale(1.06) translateY(-1px);
-    }
-
-    /* ── Horizontal exp scrollbar hidden ── */
-    #exp-scroll::-webkit-scrollbar {
-      display: none;
-    }
-
-    /* ── Section fade-in sentinel ── */
-    @keyframes sectionReveal {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
-
+  <script src="assets/theme.js"></script>
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 
 <body
@@ -444,8 +173,8 @@
         <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
           <!-- Photo card -->
-          <div class="flex-shrink-0 opacity-0 animate-fade-in float-gentle" style="animation-fill-mode:forwards;">
-            <div class="relative group card-hover">
+          <div class="flex-shrink-0 opacity-0 animate-fade-in">
+            <div class="relative group card-hover float-gentle">
               <!-- Glow halo -->
               <div
                 class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-apple-blue/10 to-purple-500/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
@@ -466,7 +195,7 @@
                     class="w-full h-full rounded-full overflow-hidden ring-2 ring-apple-blue/20 dark:ring-apple-blue/30">
                     <img src="assets/pdp.png" alt="Doryan Schouver" class="w-full h-full object-cover"
                       onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" width="144"
-                      height="144" />
+                      height="144" loading="lazy" decoding="async" />
                   </div>
                 </div>
 
@@ -497,9 +226,8 @@
                     </svg>
                   </a>
                   <a href="#"
-                    onclick="window.location.href='mai'+'lto:'+'doryan.schouver'+'@'+'gmail.com'; return false;"
-                    role="listitem" aria-label="Email"
-                    class="p-2 rounded-xl hover:bg-black/8 dark:hover:bg-white/10 text-apple-secondary dark:text-apple-darksec hover:text-apple-text dark:hover:text-white transition-all">
+                    class="email-link p-2 rounded-xl hover:bg-black/8 dark:hover:bg-white/10 text-apple-secondary dark:text-apple-darksec hover:text-apple-text dark:hover:text-white transition-all"
+                    role="listitem" aria-label="Email">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                       aria-hidden="true">
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -513,11 +241,11 @@
 
           <!-- Text content -->
           <div class="max-w-xl text-center lg:text-left mt-8 lg:mt-0">
-            <div class="opacity-0 animate-fade-up" style="animation-fill-mode:forwards;">
+            <div class="opacity-0 animate-fade-up">
               <span
                 class="inline-flex items-center gap-2 text-xs font-medium text-apple-blue dark:text-blue-400 uppercase tracking-widest mb-5">
                 <span class="w-4 h-px bg-apple-blue dark:bg-blue-400"></span>
-                SysAdmin • Réseau • DevOps
+                Bienvenue sur mon portfolio !
               </span>
             </div>
 
@@ -528,15 +256,12 @@
             </h1>
 
             <p class="opacity-0 animate-fade-up-2 text-apple-secondary dark:text-apple-darksec text-lg font-light leading-relaxed mb-6"
-              style="animation-fill-mode:forwards;">
-              Étudiant en 3ème année de BUT Informatique DACS. Du déploiement d'infrastructures à l'automatisation
-              DevOps, ma plus grande force est ma <strong class="text-apple-text dark:text-white font-medium">faculté
-                d'adaptation</strong>. Je m'intègre aux environnements complexes et maîtrise de nouvelles technos en un
-              temps record.
+>
+              Étudiant en 3ᵉ année de BUT Informatique DACS, toujours en quête de nouveautés.
             </p>
 
             <div class="opacity-0 animate-fade-up-3 flex flex-wrap gap-3 justify-center lg:justify-start mb-8"
-              style="animation-fill-mode:forwards;">
+>
               <a href="Curriculum_vitae-SCHOUVER_Doryan.pdf" download aria-label="Télécharger mon CV"
                 class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-apple-blue text-white text-sm font-medium hover:bg-apple-bluehov active:scale-95 transition-all shadow-md shadow-apple-blue/20">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
@@ -795,17 +520,28 @@
                 </div>
                 <p class="text-sm text-apple-secondary dark:text-apple-darksec leading-relaxed mb-4">
                   Formation spécialisée en <strong class="text-apple-text dark:text-white">Réseaux Informatiques et
-                    Systèmes Communicants</strong>. Fondations techniques en déploiement réseau (LAN, VLAN, DHCP), installation de systèmes d'exploitation (Linux/Windows) et maintenance matérielle.
+                    Systèmes Communicants</strong>. Fondations techniques en déploiement réseau (LAN, VLAN, DHCP),
+                  installation de systèmes d'exploitation (Linux/Windows) et maintenance matérielle.
                 </p>
                 <div>
                   <p class="text-xs font-medium text-apple-text dark:text-white uppercase tracking-wider mb-2">
                     Compétences techniques acquises</p>
                   <div class="flex flex-wrap gap-1.5">
-                    <span class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Bases Réseau (TCP/IP)</span>
-                    <span class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">VLAN &amp; LAN</span>
-                    <span class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Maintenance PC</span>
-                    <span class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Windows / Linux</span>
-                    <span class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Config. Switch/Routeur</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Bases
+                      Réseau (TCP/IP)</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">VLAN
+                      &amp; LAN</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Maintenance
+                      PC</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Windows
+                      / Linux</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Config.
+                      Switch/Routeur</span>
                   </div>
                 </div>
               </div>
@@ -1879,8 +1615,8 @@
           stage, alternance ou collaboration.</p>
 
         <div class="flex flex-wrap justify-center gap-4">
-          <a href="#" onclick="window.location.href='mai'+'lto:'+'doryan.schouver'+'@'+'gmail.com'; return false;"
-            class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-apple-blue text-white text-sm font-medium hover:bg-apple-bluehov active:scale-95 transition-all shadow-md shadow-apple-blue/20">
+          <a href="#"
+            class="email-link inline-flex items-center gap-2 px-8 py-4 rounded-full bg-apple-blue text-white text-sm font-medium hover:bg-apple-bluehov active:scale-95 transition-all shadow-md shadow-apple-blue/20">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
               aria-hidden="true">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -1911,8 +1647,8 @@
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="text-xs text-apple-secondary dark:text-apple-darksec">© 2026 Doryan Schouver. Tous droits réservés.</p>
       <div class="flex items-center gap-4 text-xs text-apple-secondary dark:text-apple-darksec">
-        <a href="#" onclick="window.location.href='mai'+'lto:'+'doryan.schouver'+'@'+'gmail.com'; return false;"
-          class="hover:text-apple-blue dark:hover:text-blue-400 transition-colors">doryan.schouver@gmail.com</a>
+        <a href="#"
+          class="email-link hover:text-apple-blue dark:hover:text-blue-400 transition-colors">doryan.schouver@gmail.com</a>
         <span aria-hidden="true">·</span>
         <a href="https://www.linkedin.com/in/doryan-schouver-b4bba7295" target="_blank" rel="noopener noreferrer"
           class="hover:text-apple-blue dark:hover:text-blue-400 transition-colors">LinkedIn</a>
@@ -1924,103 +1660,7 @@
   </footer>
 
   <!-- ===== SCRIPTS ===== -->
-  <script>
-    // --- Dark / Light mode ---
-    const root = document.documentElement;
-    const btn = document.getElementById('theme-toggle');
-    const stored = localStorage.getItem('theme');
-    const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    // Default: light (like Apple.com), honour system preference & stored preference
-    if (stored === 'dark' || (!stored && prefers)) {
-      root.classList.add('dark');
-    }
-
-    btn.addEventListener('click', () => {
-      root.classList.toggle('dark');
-      localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
-    });
-
-    // --- Header glassmorphism on scroll ---
-    const headerBg = document.getElementById('header-bg');
-    window.addEventListener('scroll', () => {
-      headerBg.style.opacity = window.scrollY > 10 ? '1' : '0';
-    }, { passive: true });
-
-    // --- Mobile menu ---
-    const mobileBtn = document.getElementById('mobile-btn');
-    const mobileNav = document.getElementById('mobile-nav');
-    mobileBtn.addEventListener('click', () => {
-      const open = !mobileNav.classList.contains('hidden');
-      mobileNav.classList.toggle('hidden', open);
-      mobileBtn.setAttribute('aria-expanded', String(!open));
-    });
-    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
-      mobileNav.classList.add('hidden');
-      mobileBtn.setAttribute('aria-expanded', 'false');
-    }));
-
-    // --- Smooth scroll for anchor links ---
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const t = document.querySelector(a.getAttribute('href'));
-        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-      });
-    });
-
-    // --- Scroll reveal ---
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal, .reveal-scale').forEach(el => observer.observe(el));
-
-    // --- Frosted glass header on scroll ---
-    const siteHeader = document.getElementById('site-header');
-    window.addEventListener('scroll', () => {
-      siteHeader?.classList.toggle('header-scrolled', window.scrollY > 20);
-    }, { passive: true });
-
-    // --- Projects tab switcher ---
-    const tabs = document.querySelectorAll('[role="tab"].proj-tab');
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const targetId = tab.getAttribute('aria-controls');
-        tabs.forEach(t => {
-          const isActive = t === tab;
-          t.setAttribute('aria-selected', String(isActive));
-          if (isActive) {
-            t.classList.add('bg-apple-white', 'dark:bg-apple-darkbg', 'text-apple-text', 'dark:text-white', 'shadow-sm', 'border', 'border-black/6', 'dark:border-white/10');
-            t.classList.remove('text-apple-secondary', 'dark:text-apple-darksec');
-          } else {
-            t.classList.remove('bg-apple-white', 'dark:bg-apple-darkbg', 'text-apple-text', 'dark:text-white', 'shadow-sm', 'border', 'border-black/6', 'dark:border-white/10');
-            t.classList.add('text-apple-secondary', 'dark:text-apple-darksec');
-          }
-          const panel = document.getElementById(t.getAttribute('aria-controls'));
-          if (panel) panel.classList.toggle('hidden', !isActive);
-        });
-        // Re-trigger reveal on newly visible cards
-        document.querySelectorAll(`#${targetId} .reveal`).forEach(el => {
-          observer.observe(el);
-        });
-      });
-    });
-
-    // --- Expériences scroll arrows ---
-    (function () {
-      const track = document.getElementById('exp-scroll');
-      const prev = document.getElementById('exp-prev');
-      const next = document.getElementById('exp-next');
-      if (!track || !prev || !next) return;
-      const step = () => track.querySelector('.exp-card')?.offsetWidth + 20 || 340;
-      next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
-      prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
-    })();
-  </script>
+  <script src="assets/main.js" defer></script>
 </body>
 
 </html>

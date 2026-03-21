@@ -1,0 +1,4 @@
+.DS_Store
+tailwindcss-macos-arm64
+node_modules/
+.env
