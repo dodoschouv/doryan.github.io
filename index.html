@@ -1,0 +1,2026 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO & Open Graph (Pour les aperçus LinkedIn, Twitter, Discord) -->
+  <meta name="description"
+    content="Portfolio de Doryan Schouver — Étudiant BUT Informatique DACS, spécialisé réseaux, cybersécurité et développement." />
+  <meta property="og:title" content="SCHOUVER Doryan — Portfolio" />
+  <meta property="og:description" content="Découvrez mon parcours en Systèmes, Réseaux, et Développement (BUT DACS)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dodoschouv.github.io/" />
+
+  <title>SCHOUVER Doryan — Portfolio</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            apple: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+          },
+          colors: {
+            apple: {
+              blue: '#0071e3',
+              bluehov: '#0077ed',
+              text: '#1d1d1f',
+              secondary: '#6e6e73',
+              bg: '#f5f5f7',
+              white: '#ffffff',
+              dark: '#000000',
+              darkbg: '#1d1d1f',
+              darkcard: '#2c2c2e',
+              darksec: '#a1a1a6',
+            }
+          },
+          keyframes: {
+            fadeUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.8s ease forwards',
+            'fade-up-1': 'fadeUp 0.8s 0.15s ease forwards',
+            'fade-up-2': 'fadeUp 0.8s 0.3s ease forwards',
+            'fade-up-3': 'fadeUp 0.8s 0.45s ease forwards',
+            'fade-in': 'fadeIn 0.6s ease forwards',
+          },
+        }
+      }
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* ── Scroll-reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.96);
+      transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.7s cubic-bezier(0.34, 1.3, 0.64, 1);
+    }
+
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.08s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.16s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.24s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.32s;
+    }
+
+    .reveal-delay-5 {
+      transition-delay: 0.40s;
+    }
+
+    /* ── Timeline ── */
+    .timeline-line {
+      background: linear-gradient(to bottom, #0071e3, transparent);
+    }
+
+    .dark .timeline-line {
+      background: linear-gradient(to bottom, #2997ff, transparent);
+    }
+
+    /* ── Gradient text ── */
+    .gradient-text {
+      background: linear-gradient(135deg, #0071e3 0%, #5856d6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .dark .gradient-text {
+      background: linear-gradient(135deg, #2997ff 0%, #7b7bff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #c7c7cc;
+      border-radius: 3px;
+    }
+
+    .dark ::-webkit-scrollbar-thumb {
+      background: #48484a;
+    }
+
+    /* ── Nav underline ── */
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #0071e3;
+      transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* ── Header frosted glass on scroll ── */
+    .header-scrolled {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .dark .header-scrolled {
+      background: rgba(29, 29, 31, 0.85);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* ── Animations ── */
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.35;
+      }
+    }
+
+    .pulse-dot {
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes gradient-shift {
+
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .animate-gradient {
+      background-size: 200% 200%;
+      animation: gradient-shift 6s ease infinite;
+    }
+
+    @keyframes float-gentle {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    .float-gentle {
+      animation: float-gentle 4s ease-in-out infinite;
+    }
+
+    @keyframes glow-pulse {
+
+      0%,
+      100% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+      }
+    }
+
+    .glow-pulse {
+      animation: glow-pulse 3s ease-in-out infinite;
+    }
+
+    /* ── Cards ── */
+    .card-hover {
+      transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.35s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .exp-card {
+      transition: transform 0.4s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.35s ease;
+    }
+
+    .exp-card:hover {
+      transform: scale(1.025) translateY(-3px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.13);
+    }
+
+    /* ── Skill chip micro-hover ── */
+    .skill-chip {
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .skill-chip:hover {
+      transform: scale(1.06) translateY(-1px);
+    }
+
+    /* ── Horizontal exp scrollbar hidden ── */
+    #exp-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* ── Section fade-in sentinel ── */
+    @keyframes sectionReveal {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+
+</head>
+
+<body
+  class="bg-apple-white text-apple-text dark:bg-apple-dark dark:text-white transition-colors duration-300 antialiased">
+
+  <!-- ===== HEADER ===== -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" role="banner">
+    <div id="header-inner" class="mx-auto max-w-6xl px-6 h-14 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#hero" aria-label="Accueil"
+        class="text-sm font-semibold tracking-tight text-apple-text dark:text-white hover:opacity-70 transition-opacity">
+        DORYAN
+      </a>
+
+      <!-- Nav desktop -->
+      <nav class="hidden md:flex items-center gap-6" aria-label="Navigation principale">
+        <a href="#hero"
+          class="nav-link text-sm text-apple-text/80 dark:text-white/80 hover:text-apple-text dark:hover:text-white transition-colors">Accueil</a>
+        <a href="#parcours"
+          class="nav-link text-sm text-apple-text/80 dark:text-white/80 hover:text-apple-text dark:hover:text-white transition-colors">Parcours</a>
+        <a href="#projets"
+          class="nav-link text-sm text-apple-text/80 dark:text-white/80 hover:text-apple-text dark:hover:text-white transition-colors">Projets</a>
+        <a href="#competences"
+          class="nav-link text-sm text-apple-text/80 dark:text-white/80 hover:text-apple-text dark:hover:text-white transition-colors">Compétences</a>
+        <a href="#experiences"
+          class="nav-link text-sm text-apple-text/80 dark:text-white/80 hover:text-apple-text dark:hover:text-white transition-colors">Expériences</a>
+        <a href="#passions"
+          class="nav-link text-sm text-apple-text/80 dark:text-white/80 hover:text-apple-text dark:hover:text-white transition-colors">Savoir-être</a>
+        <a href="#contact"
+          class="nav-link text-sm text-apple-text/80 dark:text-white/80 hover:text-apple-text dark:hover:text-white transition-colors">Contact</a>
+      </nav>
+
+      <!-- Actions droite -->
+      <div class="flex items-center gap-2">
+
+        <!-- Liens sociaux -->
+        <div class="hidden sm:flex items-center gap-1" role="list" aria-label="Réseaux sociaux">
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/doryan-schouver-b4bba7295" target="_blank" rel="noopener noreferrer"
+            role="listitem" aria-label="LinkedIn"
+            class="p-2 rounded-lg text-apple-secondary dark:text-apple-darksec hover:text-apple-text dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+          </a>
+          <!-- GitHub -->
+          <a href="https://github.com/dodoschouv" target="_blank" rel="noopener noreferrer" role="listitem"
+            aria-label="GitHub"
+            class="p-2 rounded-lg text-apple-secondary dark:text-apple-darksec hover:text-apple-text dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Toggle dark/light -->
+        <button id="theme-toggle" type="button" aria-label="Changer de thème"
+          class="p-2 rounded-lg text-apple-secondary dark:text-apple-darksec hover:text-apple-text dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all">
+          <!-- Sun (visible en dark) -->
+          <svg id="icon-sun" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="5" />
+            <path
+              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+          </svg>
+          <!-- Moon (visible en light) -->
+          <svg id="icon-moon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+        </button>
+
+        <!-- CV download -->
+        <a href="Curriculum_vitae-SCHOUVER_Doryan.pdf" download aria-label="Télécharger le CV" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-apple-blue text-white text-sm font-medium
+                  hover:bg-apple-bluehov active:scale-95 transition-all shadow-sm shadow-apple-blue/30">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"
+            aria-hidden="true">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+          CV
+        </a>
+
+        <!-- Hamburger mobile -->
+        <button id="mobile-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav"
+          class="md:hidden p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-all text-apple-text dark:text-white">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+            aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Header background (shown on scroll) -->
+    <div id="header-bg"
+      class="absolute inset-0 -z-10 opacity-0 backdrop-blur-xl bg-apple-white/80 dark:bg-apple-dark/80 border-b border-black/5 dark:border-white/5 transition-opacity duration-300"
+      aria-hidden="true"></div>
+
+    <!-- Mobile nav -->
+    <div id="mobile-nav"
+      class="hidden md:hidden bg-apple-white/95 dark:bg-apple-darkbg/95 backdrop-blur-xl border-b border-black/5 dark:border-white/5 px-6 py-4"
+      role="navigation" aria-label="Menu mobile">
+      <nav class="flex flex-col gap-1">
+        <a href="#hero"
+          class="px-3 py-2 text-sm rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-all text-apple-text dark:text-white">Accueil</a>
+        <a href="#parcours"
+          class="px-3 py-2 text-sm rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-all text-apple-text dark:text-white">Parcours</a>
+        <a href="#projets"
+          class="px-3 py-2 text-sm rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-all text-apple-text dark:text-white">Projets</a>
+        <a href="#competences"
+          class="px-3 py-2 text-sm rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-all text-apple-text dark:text-white">Compétences</a>
+        <a href="#experiences"
+          class="px-3 py-2 text-sm rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-all text-apple-text dark:text-white">Expériences</a>
+        <a href="#passions"
+          class="px-3 py-2 text-sm rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-all text-apple-text dark:text-white">Savoir-être</a>
+        <a href="#contact"
+          class="px-3 py-2 text-sm rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-all text-apple-text dark:text-white">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ===== HERO ===== -->
+    <section id="hero"
+      class="min-h-screen flex items-center justify-center pt-28 pb-20 px-6 bg-apple-white dark:bg-apple-dark relative overflow-hidden"
+      aria-label="Présentation">
+
+      <!-- Subtle background glow -->
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-apple-blue/5 to-purple-500/5 blur-3xl pointer-events-none"
+        aria-hidden="true"></div>
+
+      <div class="relative max-w-5xl mx-auto w-full">
+        <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+
+          <!-- Photo card -->
+          <div class="flex-shrink-0 opacity-0 animate-fade-in float-gentle" style="animation-fill-mode:forwards;">
+            <div class="relative group card-hover">
+              <!-- Glow halo -->
+              <div
+                class="absolute -inset-4 rounded-3xl bg-gradient-to-br from-apple-blue/10 to-purple-500/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                aria-hidden="true"></div>
+
+              <div
+                class="relative w-60 bg-apple-bg dark:bg-apple-darkcard border border-black/8 dark:border-white/10 rounded-3xl p-6 shadow-xl">
+                <!-- Disponible badge -->
+                <div
+                  class="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1 bg-apple-white dark:bg-apple-darkbg border border-black/8 dark:border-white/10 rounded-full text-xs text-apple-secondary dark:text-apple-darksec shadow-sm">
+                  <span class="w-1.5 h-1.5 rounded-full bg-green-500 pulse-dot"></span>
+                  Disponible
+                </div>
+
+                <!-- Avatar -->
+                <div class="mx-auto mb-4 mt-2 w-36 h-36">
+                  <div
+                    class="w-full h-full rounded-full overflow-hidden ring-2 ring-apple-blue/20 dark:ring-apple-blue/30">
+                    <img src="assets/pdp.png" alt="Doryan Schouver" class="w-full h-full object-cover"
+                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" width="144"
+                      height="144" />
+                  </div>
+                </div>
+
+                <div class="text-center mb-4">
+                  <h2 class="text-sm font-semibold text-apple-text dark:text-white">Doryan SCHOUVER</h2>
+                  <p class="text-xs text-apple-blue dark:text-blue-400 font-medium mt-1 tracking-wider uppercase">
+                    Étudiant en informatique</p>
+                </div>
+
+                <div class="h-px bg-black/6 dark:bg-white/8 mb-4" aria-hidden="true"></div>
+
+                <!-- Social icons in card -->
+                <div class="flex justify-center gap-2" role="list" aria-label="Liens">
+                  <a href="https://www.linkedin.com/in/doryan-schouver-b4bba7295" target="_blank"
+                    rel="noopener noreferrer" role="listitem" aria-label="LinkedIn"
+                    class="p-2 rounded-xl hover:bg-apple-blue/10 text-apple-secondary dark:text-apple-darksec hover:text-apple-blue transition-all">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                  </a>
+                  <a href="https://github.com/dodoschouv" target="_blank" rel="noopener noreferrer" role="listitem"
+                    aria-label="GitHub"
+                    class="p-2 rounded-xl hover:bg-black/8 dark:hover:bg-white/10 text-apple-secondary dark:text-apple-darksec hover:text-apple-text dark:hover:text-white transition-all">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                    </svg>
+                  </a>
+                  <a href="#"
+                    onclick="window.location.href='mai'+'lto:'+'doryan.schouver'+'@'+'gmail.com'; return false;"
+                    role="listitem" aria-label="Email"
+                    class="p-2 rounded-xl hover:bg-black/8 dark:hover:bg-white/10 text-apple-secondary dark:text-apple-darksec hover:text-apple-text dark:hover:text-white transition-all">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                      aria-hidden="true">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                      <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text content -->
+          <div class="max-w-xl text-center lg:text-left mt-8 lg:mt-0">
+            <div class="opacity-0 animate-fade-up" style="animation-fill-mode:forwards;">
+              <span
+                class="inline-flex items-center gap-2 text-xs font-medium text-apple-blue dark:text-blue-400 uppercase tracking-widest mb-5">
+                <span class="w-4 h-px bg-apple-blue dark:bg-blue-400"></span>
+                SysAdmin • Réseau • DevOps
+              </span>
+            </div>
+
+            <h1 class="opacity-0 animate-fade-up-1 font-bold tracking-tight leading-none mb-5"
+              style="font-size:clamp(2.5rem,5.5vw,3.8rem); animation-fill-mode:forwards;">
+              <span class="text-apple-text dark:text-white">Profil hybride,<br /></span>
+              <span class="gradient-text animate-gradient">Adaptation éclair.</span>
+            </h1>
+
+            <p class="opacity-0 animate-fade-up-2 text-apple-secondary dark:text-apple-darksec text-lg font-light leading-relaxed mb-6"
+              style="animation-fill-mode:forwards;">
+              Étudiant en 3ème année de BUT Informatique DACS. Du déploiement d'infrastructures à l'automatisation
+              DevOps, ma plus grande force est ma <strong class="text-apple-text dark:text-white font-medium">faculté
+                d'adaptation</strong>. Je m'intègre aux environnements complexes et maîtrise de nouvelles technos en un
+              temps record.
+            </p>
+
+            <div class="opacity-0 animate-fade-up-3 flex flex-wrap gap-3 justify-center lg:justify-start mb-8"
+              style="animation-fill-mode:forwards;">
+              <a href="Curriculum_vitae-SCHOUVER_Doryan.pdf" download aria-label="Télécharger mon CV"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-apple-blue text-white text-sm font-medium hover:bg-apple-bluehov active:scale-95 transition-all shadow-md shadow-apple-blue/20">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                  aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Télécharger mon CV
+              </a>
+              <a href="#parcours"
+                class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-apple-text/5 dark:bg-white/10 border border-apple-text/10 dark:border-white/15 text-apple-text dark:text-white text-sm font-medium hover:bg-apple-text/10 dark:hover:bg-white/15 active:scale-95 transition-all">
+                Mon parcours
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                  aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+
+            <!-- Scroll cue -->
+            <div
+              class="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-apple-secondary/50 dark:text-apple-darksec/50"
+              aria-hidden="true">
+              <div class="w-px h-12 bg-gradient-to-b from-transparent to-apple-secondary/30 dark:to-apple-darksec/30">
+              </div>
+            </div>
+          </div>
+    </section>
+
+    <!-- ===== PARCOURS SCOLAIRE ===== -->
+    <section id="parcours" class="py-32 px-6 bg-apple-bg dark:bg-apple-darkbg" aria-labelledby="parcours-title">
+      <div class="max-w-4xl mx-auto">
+
+        <!-- Section heading -->
+        <div class="text-center mb-20 reveal">
+          <p class="text-xs font-medium text-apple-blue dark:text-blue-400 uppercase tracking-widest mb-3">Parcours
+            scolaire</p>
+          <h2 id="parcours-title" class="text-4xl md:text-5xl font-bold tracking-tight text-apple-text dark:text-white">
+            Mon parcours.
+          </h2>
+          <p class="mt-4 text-apple-secondary dark:text-apple-darksec text-lg max-w-xl mx-auto">De la formation
+            technique aux spécialisations avancées en informatique.</p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="relative">
+          <!-- Vertical line -->
+          <div class="absolute left-8 top-0 bottom-0 w-px timeline-line hidden md:block" aria-hidden="true"></div>
+
+          <div class="space-y-12">
+
+            <!-- ── BUT Informatique DACS (EN COURS) ── -->
+            <article class="reveal relative flex gap-8">
+              <!-- Timeline dot -->
+              <div class="hidden md:flex flex-shrink-0 w-16 items-start justify-center pt-1" aria-hidden="true">
+                <div class="relative">
+                  <div
+                    class="w-4 h-4 rounded-full bg-apple-blue ring-4 ring-apple-bg dark:ring-apple-darkbg shadow-sm shadow-apple-blue/50">
+                  </div>
+                  <div class="absolute inset-0 rounded-full bg-apple-blue/30 animate-ping"></div>
+                </div>
+              </div>
+
+              <div
+                class="flex-1 bg-apple-white dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6 shadow-sm card-hover">
+                <!-- Header -->
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                  <div>
+                    <div class="flex items-center gap-2 mb-1">
+                      <span
+                        class="px-2 py-0.5 text-xs font-medium rounded-full bg-apple-blue/10 text-apple-blue dark:text-blue-400 border border-apple-blue/20">En
+                        cours</span>
+                      <span class="text-xs text-apple-secondary dark:text-apple-darksec">2023 – 2026</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-apple-text dark:text-white">BUT Informatique — Parcours DACS
+                    </h3>
+                    <p class="text-sm text-apple-secondary dark:text-apple-darksec">
+                      IUT Nancy-Charlemagne — Université de Lorraine
+                    </p>
+                  </div>
+                </div>
+
+                <p class="text-sm text-apple-secondary dark:text-apple-darksec leading-relaxed mb-4">
+                  Formation Bac+3 spécialisée en <strong class="text-apple-text dark:text-white">Déploiement
+                    d'Applications Communicantes et Sécurisées</strong>. Couvre l'administration système, la sécurité
+                  réseau, l'infrastructure cloud et le développement applicatif.
+                </p>
+
+                <!-- Compétences clés -->
+                <div class="mb-4">
+                  <p class="text-xs font-medium text-apple-text dark:text-white uppercase tracking-wider mb-2">
+                    Compétences acquises</p>
+                  <div class="flex flex-wrap gap-1.5">
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-blue/8 dark:bg-blue-500/10 text-apple-blue dark:text-blue-400">Administration
+                      réseau</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-blue/8 dark:bg-blue-500/10 text-apple-blue dark:text-blue-400">Cybersécurité</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-blue/8 dark:bg-blue-500/10 text-apple-blue dark:text-blue-400">Docker
+                      / CI-CD</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-blue/8 dark:bg-blue-500/10 text-apple-blue dark:text-blue-400">Linux</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-blue/8 dark:bg-blue-500/10 text-apple-blue dark:text-blue-400">Python
+                      / PHP</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-blue/8 dark:bg-blue-500/10 text-apple-blue dark:text-blue-400">Vue.js</span>
+                  </div>
+                </div>
+
+                <!-- Projet phare CCD -->
+                <div
+                  class="border border-black/6 dark:border-white/8 rounded-xl p-4 bg-apple-bg dark:bg-apple-darkbg/50">
+                  <div class="flex items-start justify-between gap-3 mb-2">
+                    <div class="flex items-center gap-2">
+                      <span class="text-base">🏆</span>
+                      <span class="text-sm font-semibold text-apple-text dark:text-white">CrazyCharlyDay 2026 — Toys
+                        Academy</span>
+                    </div>
+                    <span
+                      class="px-2 py-0.5 text-xs font-medium rounded-full bg-yellow-400/15 text-yellow-700 dark:text-yellow-400 border border-yellow-400/30 flex-shrink-0">Gagnant
+                      🥇</span>
+                  </div>
+                  <p class="text-xs text-apple-secondary dark:text-apple-darksec leading-relaxed mb-3">
+                    Compétition informatique en 15h : conception et déploiement d'une application web complète de
+                    gestion d'articles et d'abonnés, avec composition de box optimisée, pour un commanditaire réel.
+                  </p>
+                  <div class="flex flex-wrap gap-1.5 mb-3">
+                    <span
+                      class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Vue
+                      3</span>
+                    <span
+                      class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">PHP
+                      / Slim</span>
+                    <span
+                      class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Java
+                      17</span>
+                    <span
+                      class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">MariaDB</span>
+                    <span
+                      class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Docker</span>
+                    <span
+                      class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Nginx</span>
+                  </div>
+                  <a href="https://github.com/dodoschouv/ccd_toys-academy" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 text-xs text-apple-blue dark:text-blue-400 hover:underline">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                    </svg>
+                    Voir le projet sur GitHub
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- ── BTS ── -->
+            <article class="reveal reveal-delay-1 relative flex gap-8">
+              <div class="hidden md:flex flex-shrink-0 w-16 items-start justify-center pt-1" aria-hidden="true">
+                <div
+                  class="w-4 h-4 rounded-full bg-apple-secondary/40 dark:bg-apple-darksec/40 ring-4 ring-apple-bg dark:ring-apple-darkbg">
+                </div>
+              </div>
+              <div
+                class="flex-1 bg-apple-white dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6 shadow-sm card-hover">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                  <div>
+                    <div class="flex items-center gap-2 mb-1">
+                      <span
+                        class="px-2 py-0.5 text-xs font-medium rounded-full bg-green-500/10 text-green-700 dark:text-green-400 border border-green-500/20">Diplômé</span>
+                      <span class="text-xs text-apple-secondary dark:text-apple-darksec">2023 – 2025</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-apple-text dark:text-white">BTS SIO — Parcours SISR</h3>
+                    <p class="text-sm text-apple-secondary dark:text-apple-darksec">Lycée Robert Schuman — Metz</p>
+                  </div>
+                </div>
+                <p class="text-sm text-apple-secondary dark:text-apple-darksec leading-relaxed mb-4">
+                  Formation Bac+2 spécialisée en <strong class="text-apple-text dark:text-white">Solutions
+                    d'Infrastructure, Systèmes et Réseaux</strong>. Couvre l'administration réseau, la sécurité, la
+                  virtualisation et la gestion des services.
+                </p>
+                <div class="mb-4">
+                  <p class="text-xs font-medium text-apple-text dark:text-white uppercase tracking-wider mb-2">
+                    Compétences acquises</p>
+                  <div class="flex flex-wrap gap-1.5">
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Active
+                      Directory</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Réseaux
+                      Cisco</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">VPN
+                      / IPsec</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">RADIUS
+                      802.1X</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Windows
+                      Server</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Linux</span>
+                    <span
+                      class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">HAProxy</span>
+                  </div>
+                </div>
+
+                <!-- Résumé projets BTS -->
+                <div
+                  class="border border-black/6 dark:border-white/8 rounded-xl p-4 bg-apple-bg dark:bg-apple-darkbg/50">
+                  <p class="text-xs font-semibold text-apple-text dark:text-white mb-3">🖧 Projets réalisés (sélection)
+                  </p>
+                  <ul class="space-y-1.5">
+                    <li class="flex items-start gap-2 text-xs text-apple-secondary dark:text-apple-darksec"><span
+                        class="text-apple-blue dark:text-blue-400 flex-shrink-0 mt-0.5">›</span> Infrastructure AD —
+                      DNS, DHCP, GPO, intégration domaine</li>
+                    <li class="flex items-start gap-2 text-xs text-apple-secondary dark:text-apple-darksec"><span
+                        class="text-apple-blue dark:text-blue-400 flex-shrink-0 mt-0.5">›</span> Serveur web sécurisé
+                      Apache + Reverse Proxy HAProxy (TLS)</li>
+                    <li class="flex items-start gap-2 text-xs text-apple-secondary dark:text-apple-darksec"><span
+                        class="text-apple-blue dark:text-blue-400 flex-shrink-0 mt-0.5">›</span> Pare-feu IPFire +
+                      tunnels VPN site-à-site &amp; nomade</li>
+                    <li class="flex items-start gap-2 text-xs text-apple-secondary dark:text-apple-darksec"><span
+                        class="text-apple-blue dark:text-blue-400 flex-shrink-0 mt-0.5">›</span> Authentification RADIUS
+                      802.1X avec FreeRADIUS &amp; Cisco</li>
+                    <li class="flex items-start gap-2 text-xs text-apple-secondary dark:text-apple-darksec"><span
+                        class="text-apple-blue dark:text-blue-400 flex-shrink-0 mt-0.5">›</span> VLAN inter-commutateur
+                      (trunk 802.1Q) sur matériel Cisco</li>
+                  </ul>
+                </div>
+              </div>
+            </article>
+
+            <!-- ── BAC PRO ── -->
+            <article class="reveal reveal-delay-2 relative flex gap-8">
+              <div class="hidden md:flex flex-shrink-0 w-16 items-start justify-center pt-1" aria-hidden="true">
+                <div
+                  class="w-4 h-4 rounded-full bg-apple-secondary/40 dark:bg-apple-darksec/40 ring-4 ring-apple-bg dark:ring-apple-darkbg">
+                </div>
+              </div>
+              <div
+                class="flex-1 bg-apple-white dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6 shadow-sm card-hover">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-4">
+                  <div>
+                    <div class="flex items-center gap-2 mb-1">
+                      <span
+                        class="px-2 py-0.5 text-xs font-medium rounded-full bg-green-500/10 text-green-700 dark:text-green-400 border border-green-500/20">Diplômé</span>
+                      <span class="text-xs text-apple-secondary dark:text-apple-darksec">2020 – 2023</span>
+                    </div>
+                    <h3 class="text-lg font-semibold text-apple-text dark:text-white">BAC PRO SN — Parcours RISC</h3>
+                    <p class="text-sm text-apple-secondary dark:text-apple-darksec">Lycée Condorcet — Schœneck</p>
+                  </div>
+                </div>
+                <p class="text-sm text-apple-secondary dark:text-apple-darksec leading-relaxed mb-4">
+                  Formation spécialisée en <strong class="text-apple-text dark:text-white">Réseaux Informatiques et
+                    Systèmes Communicants</strong>. Fondations techniques en déploiement réseau (LAN, VLAN, DHCP), installation de systèmes d'exploitation (Linux/Windows) et maintenance matérielle.
+                </p>
+                <div>
+                  <p class="text-xs font-medium text-apple-text dark:text-white uppercase tracking-wider mb-2">
+                    Compétences techniques acquises</p>
+                  <div class="flex flex-wrap gap-1.5">
+                    <span class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Bases Réseau (TCP/IP)</span>
+                    <span class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">VLAN &amp; LAN</span>
+                    <span class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Maintenance PC</span>
+                    <span class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Windows / Linux</span>
+                    <span class="px-2 py-1 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Config. Switch/Routeur</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="mt-20 reveal">
+          <p class="text-xs font-medium text-apple-blue dark:text-blue-400 uppercase tracking-widest mb-6 text-center">
+            Certifications</p>
+          <div class="grid sm:grid-cols-2 gap-4">
+
+            <!-- ANSSI SecNumAcadémie -->
+            <div
+              class="bg-apple-white dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-5 card-hover shadow-sm">
+              <div class="flex items-start gap-3">
+                <div
+                  class="w-10 h-10 rounded-xl bg-blue-500/10 dark:bg-blue-500/15 flex items-center justify-center flex-shrink-0">
+                  <span class="text-lg">🔐</span>
+                </div>
+                <div>
+                  <h4 class="text-sm font-semibold text-apple-text dark:text-white mb-0.5">SecNumAcadémie</h4>
+                  <p class="text-xs text-apple-blue dark:text-blue-400 font-medium mb-1">ANSSI — Agence Nationale de la
+                    Sécurité des SI</p>
+                  <p class="text-xs text-apple-secondary dark:text-apple-darksec leading-relaxed">Formation en
+                    cybersécurité délivrée par l'ANSSI, couvrant les fondamentaux de la sécurité des systèmes
+                    d'information.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cisco -->
+            <div
+              class="bg-apple-white dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-5 card-hover shadow-sm">
+              <div class="flex items-start gap-3">
+                <div
+                  class="w-10 h-10 rounded-xl bg-blue-500/10 dark:bg-blue-500/15 flex items-center justify-center flex-shrink-0">
+                  <span class="text-lg">🌐</span>
+                </div>
+                <div>
+                  <h4 class="text-sm font-semibold text-apple-text dark:text-white mb-0.5">Modules Cisco Networking</h4>
+                  <p class="text-xs text-apple-blue dark:text-blue-400 font-medium mb-1">Cisco Networking Academy</p>
+                  <p class="text-xs text-apple-secondary dark:text-apple-darksec leading-relaxed">Introduction to
+                    Networks, Switching & Routing, Introduction to Cybersecurity, Cybersecurity Essentials</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJETS ===== -->
+    <section id="projets" class="py-32 px-6 bg-apple-white dark:bg-apple-dark" aria-labelledby="projets-title">
+      <div class="max-w-5xl mx-auto">
+
+        <!-- Heading -->
+        <div class="text-center mb-12 reveal">
+          <p class="text-xs font-medium text-apple-blue dark:text-blue-400 uppercase tracking-widest mb-3">Projets &
+            Réalisations</p>
+          <h2 id="projets-title" class="text-4xl md:text-5xl font-bold tracking-tight text-apple-text dark:text-white">
+            Mes réalisations.</h2>
+          <p class="mt-4 text-apple-secondary dark:text-apple-darksec text-lg max-w-xl mx-auto">Des projets répartis sur
+            l'ensemble de mon parcours.</p>
+        </div>
+
+        <!-- 3-tab segmented control -->
+        <div class="flex justify-center mb-12 reveal" role="tablist" aria-label="Filtrer les projets par formation">
+          <div
+            class="inline-flex bg-apple-bg dark:bg-apple-darkcard rounded-full p-1 gap-1 border border-black/6 dark:border-white/8 shadow-sm">
+            <button id="tab-but" role="tab" aria-selected="true" aria-controls="panel-but" class="proj-tab px-5 py-2 rounded-full text-sm font-medium transition-all duration-200
+                           bg-apple-white dark:bg-apple-darkbg text-apple-text dark:text-white shadow-sm
+                           border border-black/6 dark:border-white/10">
+              BUT
+            </button>
+            <button id="tab-bts" role="tab" aria-selected="false" aria-controls="panel-bts" class="proj-tab px-5 py-2 rounded-full text-sm font-medium transition-all duration-200
+                           text-apple-secondary dark:text-apple-darksec hover:text-apple-text dark:hover:text-white">
+              BTS
+            </button>
+            <button id="tab-perso" role="tab" aria-selected="false" aria-controls="panel-perso" class="proj-tab px-5 py-2 rounded-full text-sm font-medium transition-all duration-200
+                           text-apple-secondary dark:text-apple-darksec hover:text-apple-text dark:hover:text-white">
+              Personnels
+            </button>
+          </div>
+        </div>
+
+        <!-- ══ PANEL BUT ══ -->
+        <div id="panel-but" role="tabpanel" aria-labelledby="tab-but">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            <!-- CCD — Toys Academy 🏆 -->
+            <article
+              class="reveal bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-5 card-hover shadow-sm flex flex-col">
+              <div class="flex items-start justify-between mb-3">
+                <div
+                  class="w-10 h-10 rounded-xl bg-yellow-400/15 dark:bg-yellow-400/10 flex items-center justify-center text-xl flex-shrink-0">
+                  🏆</div>
+                <span
+                  class="px-2 py-0.5 text-xs font-medium rounded-full bg-yellow-400/15 text-yellow-700 dark:text-yellow-400 border border-yellow-400/30">Gagnant
+                  🥇</span>
+              </div>
+              <h3 class="text-base font-semibold text-apple-text dark:text-white mb-1">CrazyCharlyDay 2026</h3>
+              <p class="text-xs font-medium text-apple-blue dark:text-blue-400 mb-2">Toys Academy — Hackathon 24h</p>
+              <p class="text-xs text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-4">Application
+                web complète de gestion d'articles et d'abonnés avec composition de box optimisée. Réalisée en équipe de
+                7 en une seule journée de compétition.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Vue
+                  3</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">PHP
+                  Slim</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Java
+                  17</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Docker</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">MariaDB</span>
+              </div>
+              <a href="https://github.com/dodoschouv/ccd_toys-academy" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs text-apple-blue dark:text-blue-400 hover:underline mt-auto">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+                Voir sur GitHub
+              </a>
+            </article>
+
+            <!-- SAE Forensique -->
+            <article
+              class="reveal reveal-delay-1 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-5 card-hover shadow-sm flex flex-col">
+              <div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-xl mb-3">🔍</div>
+              <h3 class="text-base font-semibold text-apple-text dark:text-white mb-1">SAÉ — Analyse forensique</h3>
+              <p class="text-xs font-medium text-apple-blue dark:text-blue-400 mb-2">Diagnostic système &amp;
+                investigation Linux</p>
+              <p class="text-xs text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-4">Outils de
+                diagnostic de processus (état R/S/D/Z/T), analyse réseau automatisée et investigation forensique
+                d'incidents réels (brute force SSH, fuite mémoire OOM).</p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">C</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Ruby</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Bash</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Linux</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">strace</span>
+              </div>
+              <a href="https://github.com/ColettesCorvette/SAE-forensique" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs text-apple-blue dark:text-blue-400 hover:underline mt-auto">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+                Voir sur GitHub
+              </a>
+            </article>
+
+            <!-- Audit + Supervision -->
+            <article
+              class="reveal reveal-delay-2 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-5 card-hover shadow-sm flex flex-col">
+              <div class="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center text-xl mb-3">📊</div>
+              <h3 class="text-base font-semibold text-apple-text dark:text-white mb-1">Audit système &amp; Supervision
+              </h3>
+              <p class="text-xs font-medium text-apple-blue dark:text-blue-400 mb-2">Linux · Prometheus · Grafana</p>
+              <p class="text-xs text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-4">Script Ruby
+                d'audit système (CPU, RAM, disques, services) exposé via Docker, consommé par un exporter JSON →
+                Prometheus, visualisé dans un dashboard Grafana préconfiguré.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Ruby</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Prometheus</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Grafana</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Docker</span>
+              </div>
+              <a href="https://github.com/alexxela57/hary_schouver_fuchs_projet_audit_et_deploiement" target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs text-apple-blue dark:text-blue-400 hover:underline mt-auto">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+                Voir sur GitHub
+              </a>
+            </article>
+
+            <!-- LDAP + BookStack -->
+            <article
+              class="reveal bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-5 card-hover shadow-sm flex flex-col">
+              <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-xl mb-3">🔐</div>
+              <h3 class="text-base font-semibold text-apple-text dark:text-white mb-1">Déploiement LDAP &amp; BookStack
+              </h3>
+              <p class="text-xs font-medium text-apple-blue dark:text-blue-400 mb-2">Authentification centralisée ·
+                Active Directory UL</p>
+              <p class="text-xs text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-4">Raccordement
+                au LDAP de l'Université de Lorraine (LDAPS/TLS, Active Directory), déploiement de BookStack via Docker
+                avec authentification SSO et gestion des rôles par groupe LDAP.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Ruby</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">PHP</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">LDAP/S</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Docker</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">BookStack</span>
+              </div>
+              <a href="https://github.com/ColettesCorvette/pre-sae-ccd-v2" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs text-apple-blue dark:text-blue-400 hover:underline mt-auto">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+                Voir sur GitHub
+              </a>
+            </article>
+
+            <!-- PRA SAÉ S6 -->
+            <article
+              class="reveal reveal-delay-1 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-5 card-hover shadow-sm flex flex-col">
+              <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center text-xl mb-3">💾</div>
+              <h3 class="text-base font-semibold text-apple-text dark:text-white mb-1">PRA — Plan de reprise d'activité
+              </h3>
+              <p class="text-xs font-medium text-apple-blue dark:text-blue-400 mb-2">SAÉ S6 DACS — Sauvegarde &amp;
+                Résilience</p>
+              <p class="text-xs text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-4">Solution
+                complète de sauvegarde (Restic + règle 3-2-1) et de reprise d'activité pour une infrastructure
+                conteneurisée (BookStack, Prometheus/Grafana), avec réplication S3 via MinIO.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Restic</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">MinIO
+                  / S3</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Docker</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Bash</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Linux</span>
+              </div>
+              <a href="https://github.com/ColettesCorvette/pra-sae-s6" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs text-apple-blue dark:text-blue-400 hover:underline mt-auto">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+                Voir sur GitHub
+              </a>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ══ PANEL BTS ══ -->
+        <div id="panel-bts" role="tabpanel" aria-labelledby="tab-bts" class="hidden">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            <!-- Infrastructure réseau AD -->
+            <article
+              class="reveal bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-5 card-hover shadow-sm flex flex-col">
+              <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-xl mb-3">🗄️</div>
+              <h3 class="text-base font-semibold text-apple-text dark:text-white mb-1">Infrastructure réseau AD</h3>
+              <p class="text-xs font-medium text-apple-blue dark:text-blue-400 mb-2">Active Directory · DNS · DHCP · GPO
+              </p>
+              <p class="text-xs text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-4">Installation
+                et configuration d'une infrastructure réseau complète avec Active Directory, serveur DNS/DHCP,
+                stratégies de groupe (GPO) et intégration des postes clients au domaine.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Windows
+                  Server</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Active
+                  Directory</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">DNS
+                  / DHCP</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">GPO</span>
+              </div>
+              <span
+                class="inline-flex items-center gap-1.5 text-xs text-apple-secondary dark:text-apple-darksec mt-auto italic">Projet
+                scolaire — documentation interne</span>
+            </article>
+
+            <!-- Windows Server 2016 -->
+            <article
+              class="reveal reveal-delay-1 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-5 card-hover shadow-sm flex flex-col">
+              <div class="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-xl mb-3">🪟</div>
+              <h3 class="text-base font-semibold text-apple-text dark:text-white mb-1">Administration Windows Server
+                2016</h3>
+              <p class="text-xs font-medium text-apple-blue dark:text-blue-400 mb-2">Hyper-V · IIS · Rôles &amp;
+                services</p>
+              <p class="text-xs text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-4">Installation,
+                configuration et administration complète d'un serveur Windows 2016 : virtualisation Hyper-V, déploiement
+                IIS, gestion des rôles (AD DS, DNS, DHCP, File Server) et mises à jour.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Windows
+                  Server 2016</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Hyper-V</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">IIS</span>
+              </div>
+              <span
+                class="inline-flex items-center gap-1.5 text-xs text-apple-secondary dark:text-apple-darksec mt-auto italic">Projet
+                scolaire — documentation interne</span>
+            </article>
+
+            <!-- Serveur web sécurisé + HAProxy -->
+            <article
+              class="reveal reveal-delay-2 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-5 card-hover shadow-sm flex flex-col">
+              <div class="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center text-xl mb-3">⚖️</div>
+              <h3 class="text-base font-semibold text-apple-text dark:text-white mb-1">Serveur web sécurisé &amp;
+                HAProxy</h3>
+              <p class="text-xs font-medium text-apple-blue dark:text-blue-400 mb-2">HTTPS · Reverse Proxy · Load
+                Balancing</p>
+              <p class="text-xs text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-4">Mise en place
+                d'un serveur web Apache sécurisé (HTTPS/TLS), couplé à un reverse proxy HAProxy pour la répartition de
+                charge et la haute disponibilité des services.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Apache</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">HAProxy</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">TLS/HTTPS</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Linux</span>
+              </div>
+              <span
+                class="inline-flex items-center gap-1.5 text-xs text-apple-secondary dark:text-apple-darksec mt-auto italic">Projet
+                scolaire — documentation interne</span>
+            </article>
+
+            <!-- IPFire + VPN -->
+            <article
+              class="reveal bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-5 card-hover shadow-sm flex flex-col">
+              <div class="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-xl mb-3">🛡️</div>
+              <h3 class="text-base font-semibold text-apple-text dark:text-white mb-1">Pare-feu IPFire &amp; VPN</h3>
+              <p class="text-xs font-medium text-apple-blue dark:text-blue-400 mb-2">Sécurité réseau · Tunnels VPN ·
+                Filtrage</p>
+              <p class="text-xs text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-4">Déploiement et
+                configuration d'IPFire (pare-feu open source) avec mise en place de tunnels VPN site-à-site et nomade,
+                règles de filtrage et supervision du trafic réseau.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">IPFire</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">VPN
+                  IPsec</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">OpenVPN</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Firewall</span>
+              </div>
+              <span
+                class="inline-flex items-center gap-1.5 text-xs text-apple-secondary dark:text-apple-darksec mt-auto italic">Projet
+                scolaire — documentation interne</span>
+            </article>
+
+            <!-- RADIUS 802.1X -->
+            <article
+              class="reveal reveal-delay-1 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-5 card-hover shadow-sm flex flex-col">
+              <div class="w-10 h-10 rounded-xl bg-yellow-500/10 flex items-center justify-center text-xl mb-3">🔑</div>
+              <h3 class="text-base font-semibold text-apple-text dark:text-white mb-1">Authentification RADIUS 802.1X
+              </h3>
+              <p class="text-xs font-medium text-apple-blue dark:text-blue-400 mb-2">Contrôle d'accès réseau · EAP ·
+                FreeRADIUS</p>
+              <p class="text-xs text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-4">Mise en place
+                d'une authentification réseau 802.1X via FreeRADIUS couplé à Active Directory, permettant le contrôle
+                d'accès par port sur les équipements Cisco du LAN.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">FreeRADIUS</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">802.1X</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Active
+                  Directory</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Cisco</span>
+              </div>
+              <span
+                class="inline-flex items-center gap-1.5 text-xs text-apple-secondary dark:text-apple-darksec mt-auto italic">Projet
+                scolaire — documentation interne</span>
+            </article>
+
+            <!-- VLAN inter-commutateur -->
+            <article
+              class="reveal reveal-delay-2 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-5 card-hover shadow-sm flex flex-col">
+              <div class="w-10 h-10 rounded-xl bg-teal-500/10 flex items-center justify-center text-xl mb-3">🔀</div>
+              <h3 class="text-base font-semibold text-apple-text dark:text-white mb-1">VLAN inter-commutateur</h3>
+              <p class="text-xs font-medium text-apple-blue dark:text-blue-400 mb-2">Segmentation réseau · Trunk 802.1Q
+                · Cisco</p>
+              <p class="text-xs text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-4">Configuration
+                de VLANs sur commutateurs Cisco (SG300/SF300) avec liaisons trunk 802.1Q inter-commutateurs, routage
+                inter-VLAN et mise en place de la politique d'accès par port.</p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Cisco</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">VLAN
+                  802.1Q</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Trunk</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Packet
+                  Tracer</span>
+              </div>
+              <span
+                class="inline-flex items-center gap-1.5 text-xs text-apple-secondary dark:text-apple-darksec mt-auto italic">Projet
+                scolaire — documentation interne</span>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- ══ PANEL PERSONNELS ══ -->
+        <div id="panel-perso" role="tabpanel" aria-labelledby="tab-perso" class="hidden">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+            <!-- Mac Monitor -->
+            <article
+              class="reveal bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-5 card-hover shadow-sm flex flex-col">
+              <div class="flex items-start justify-between mb-3">
+                <div
+                  class="w-10 h-10 rounded-xl bg-apple-blue/10 flex items-center justify-center text-xl flex-shrink-0">
+                  🖥️</div>
+                <span
+                  class="px-2 py-0.5 text-xs font-medium rounded-full bg-apple-blue/10 text-apple-blue dark:text-blue-400 border border-apple-blue/20">Collaboratif</span>
+              </div>
+              <h3 class="text-base font-semibold text-apple-text dark:text-white mb-1">Mac Monitor</h3>
+              <p class="text-xs font-medium text-apple-blue dark:text-blue-400 mb-2">Monitoring système · Web Interface
+              </p>
+              <p class="text-xs text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-4">Moniteur
+                système léger cross-platform (macOS &amp; Linux) avec interface web Sinatra, tickets d'incidents
+                automatiques, alertes email/Discord, CI/CD GitHub Actions et installation en tant que service système.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Ruby</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Sinatra</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">Discord
+                  API</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">GitHub
+                  Actions</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec">macOS
+                  / Linux</span>
+              </div>
+              <a href="https://github.com/LukaSalvo/mac-monitor" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-xs text-apple-blue dark:text-blue-400 hover:underline mt-auto">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                </svg>
+                Voir sur GitHub
+              </a>
+            </article>
+
+            <!-- Homelab -->
+            <article
+              class="reveal reveal-delay-1 flex flex-col h-full bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-5 shadow-sm card-hover">
+              <div class="mb-3">
+                <span
+                  class="inline-flex w-10 h-10 items-center justify-center rounded-xl bg-orange-500/10 text-orange-600 dark:text-orange-400 text-lg mb-4">
+                  🗄️
+                </span>
+                <h3 class="text-base font-semibold text-apple-text dark:text-white leading-tight">Homelab &amp; Infras
+                  Personnelles</h3>
+              </div>
+              <p class="text-sm text-apple-secondary dark:text-apple-darksec leading-relaxed mb-5">
+                Administration complète d'un serveur NAS en autonomie : gestion du volume de stockage centralisé, mise
+                en place d'un réseau privé VPN pour accès distant (streaming média), et intégration sécurisée d'un parc
+                de caméras de vidéosurveillance.
+              </p>
+
+              <div class="flex flex-wrap gap-1.5 mb-5 mt-auto">
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-black/5 dark:border-white/5">NAS</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-black/5 dark:border-white/5">VPN</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-black/5 dark:border-white/5">Sécurité
+                  / CCTV</span>
+                <span
+                  class="px-2 py-0.5 text-xs rounded-md bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-black/5 dark:border-white/5">Linux</span>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===== COMPÉTENCES ===== -->
+    <section id="competences" class="py-32 px-6 bg-apple-bg dark:bg-apple-darkbg" aria-labelledby="comp-title">
+      <div class="max-w-5xl mx-auto">
+
+        <div class="text-center mb-16 reveal">
+          <p class="text-xs font-medium text-apple-blue dark:text-blue-400 uppercase tracking-widest mb-3">Compétences
+          </p>
+          <h2 id="comp-title" class="text-4xl md:text-5xl font-bold tracking-tight text-apple-text dark:text-white">Ce
+            que je maîtrise.</h2>
+          <p class="mt-4 text-apple-secondary dark:text-apple-darksec text-lg max-w-xl mx-auto">Des compétences acquises
+            sur le terrain, en formation et sur des projets réels.</p>
+        </div>
+
+        <!-- Domain grid (2 cols desktop, 1 mobile) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+
+          <!-- Réseau & Infrastructure -->
+          <div
+            class="reveal-scale reveal-delay-1 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-9 h-9 rounded-xl bg-blue-500/10 flex items-center justify-center text-lg">🌐</div>
+              <h3 class="font-semibold text-apple-text dark:text-white">Réseau &amp; Infrastructure</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-blue-500/8 dark:bg-blue-400/10 text-blue-700 dark:text-blue-300 border border-blue-500/15">TCP/IP
+                & Routage</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-blue-500/8 dark:bg-blue-400/10 text-blue-700 dark:text-blue-300 border border-blue-500/15">VLAN</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-blue-500/8 dark:bg-blue-400/10 text-blue-700 dark:text-blue-300 border border-blue-500/15">VPN</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-blue-500/8 dark:bg-blue-400/10 text-blue-700 dark:text-blue-300 border border-blue-500/15">DNS
+                / DHCP</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-blue-500/8 dark:bg-blue-400/10 text-blue-700 dark:text-blue-300 border border-blue-500/15">Active
+                Directory</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-blue-500/8 dark:bg-blue-400/10 text-blue-700 dark:text-blue-300 border border-blue-500/15">RADIUS
+                / 802.1X</span>
+            </div>
+          </div>
+
+          <!-- Sécurité & Forensique -->
+          <div
+            class="reveal-scale reveal-delay-2 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-9 h-9 rounded-xl bg-red-500/10 flex items-center justify-center text-lg">🔒</div>
+              <h3 class="font-semibold text-apple-text dark:text-white">Sécurité &amp; Investigate</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-red-500/8 dark:bg-red-400/10 text-red-700 dark:text-red-300 border border-red-500/15">Firewalls
+                (iptables/IPFire)</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-red-500/8 dark:bg-red-400/10 text-red-700 dark:text-red-300 border border-red-500/15">Analyse
+                forensique</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-red-500/8 dark:bg-red-400/10 text-red-700 dark:text-red-300 border border-red-500/15">Cybersécurité
+                réseau</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-red-500/8 dark:bg-red-400/10 text-red-700 dark:text-red-300 border border-red-500/15">Politiques
+                de sécurité</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-red-500/8 dark:bg-red-400/10 text-red-700 dark:text-red-300 border border-red-500/15">PRA
+                / PCA</span>
+            </div>
+          </div>
+
+          <!-- Administration Systèmes -->
+          <div
+            class="reveal-scale reveal-delay-1 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-9 h-9 rounded-xl bg-orange-500/10 flex items-center justify-center text-lg">🖥️</div>
+              <h3 class="font-semibold text-apple-text dark:text-white">Administration Systèmes</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-orange-500/8 dark:bg-orange-400/10 text-orange-700 dark:text-orange-300 border border-orange-500/15">Linux
+                (Debian/Ubuntu)</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-orange-500/8 dark:bg-orange-400/10 text-orange-700 dark:text-orange-300 border border-orange-500/15">Windows
+                Server</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-orange-500/8 dark:bg-orange-400/10 text-orange-700 dark:text-orange-300 border border-orange-500/15">macOS</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-orange-500/8 dark:bg-orange-400/10 text-orange-700 dark:text-orange-300 border border-orange-500/15">Bash
+                / Shell</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-orange-500/8 dark:bg-orange-400/10 text-orange-700 dark:text-orange-300 border border-orange-500/15">LDAP</span>
+            </div>
+          </div>
+
+          <!-- Virtualisation & Conteneurisation -->
+          <div
+            class="reveal-scale reveal-delay-2 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-9 h-9 rounded-xl bg-cyan-500/10 flex items-center justify-center text-lg">📦</div>
+              <h3 class="font-semibold text-apple-text dark:text-white">Virtualisation &amp; Conteneurs</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-cyan-500/8 dark:bg-cyan-400/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/15">Docker</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-cyan-500/8 dark:bg-cyan-400/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/15">Hyper-V</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-cyan-500/8 dark:bg-cyan-400/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/15">KVM</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-cyan-500/8 dark:bg-cyan-400/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/15">VMware
+                / VirtualBox</span>
+            </div>
+          </div>
+
+          <!-- DevOps & Déploiement -->
+          <div
+            class="reveal-scale reveal-delay-1 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-9 h-9 rounded-xl bg-purple-500/10 flex items-center justify-center text-lg">⚙️</div>
+              <h3 class="font-semibold text-apple-text dark:text-white">DevOps &amp; Déploiement</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-purple-500/8 dark:bg-purple-400/10 text-purple-700 dark:text-purple-300 border border-purple-500/15">Docker
+                Compose</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-purple-500/8 dark:bg-purple-400/10 text-purple-700 dark:text-purple-300 border border-purple-500/15">GitHub
+                Actions (CI/CD)</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-purple-500/8 dark:bg-purple-400/10 text-purple-700 dark:text-purple-300 border border-purple-500/15">Git</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-purple-500/8 dark:bg-purple-400/10 text-purple-700 dark:text-purple-300 border border-purple-500/15">Prometheus
+                / Grafana</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-purple-500/8 dark:bg-purple-400/10 text-purple-700 dark:text-purple-300 border border-purple-500/15">MinIO
+                (S3)</span>
+            </div>
+          </div>
+
+          <!-- Développement & Scripting -->
+          <div
+            class="reveal-scale reveal-delay-2 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-9 h-9 rounded-xl bg-green-500/10 flex items-center justify-center text-lg">💻</div>
+              <h3 class="font-semibold text-apple-text dark:text-white">Développement &amp; Scripting</h3>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-green-500/8 dark:bg-green-400/10 text-green-700 dark:text-green-300 border border-green-500/15">Python</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-green-500/8 dark:bg-green-400/10 text-green-700 dark:text-green-300 border border-green-500/15">HTML
+                / CSS</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-green-500/8 dark:bg-green-400/10 text-green-700 dark:text-green-300 border border-green-500/15">PHP</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-green-500/8 dark:bg-green-400/10 text-green-700 dark:text-green-300 border border-green-500/15">SQL</span>
+              <span
+                class="skill-chip px-2.5 py-1 text-xs rounded-lg bg-green-500/8 dark:bg-green-400/10 text-green-700 dark:text-green-300 border border-green-500/15">Ruby
+                (Notions)</span>
+            </div>
+          </div>
+
+        </div><!-- /grid -->
+
+        <!-- Cisco modules badge row -->
+        <div
+          class="reveal reveal-delay-3 bg-gradient-to-r from-apple-blue/5 to-purple-500/5 dark:from-apple-blue/8 dark:to-purple-500/8 border border-apple-blue/12 dark:border-apple-blue/15 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-apple-blue/10 flex items-center justify-center text-xl">📡
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-semibold text-apple-text dark:text-white mb-2">Modules Cisco Network Academy</p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="skill-chip px-3 py-1 text-xs rounded-full bg-apple-blue/10 text-apple-blue dark:text-blue-400 border border-apple-blue/20 font-medium">IT
+                Essentials</span>
+              <span
+                class="skill-chip px-3 py-1 text-xs rounded-full bg-apple-blue/10 text-apple-blue dark:text-blue-400 border border-apple-blue/20 font-medium">Principes
+                de cybersécurité</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== EXPÉRIENCES ===== -->
+    <section id="experiences" class="py-32 bg-apple-white dark:bg-apple-dark overflow-hidden"
+      aria-labelledby="exp-title">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-16 reveal">
+          <p class="text-xs font-medium text-apple-blue dark:text-blue-400 uppercase tracking-widest mb-3">Expériences
+          </p>
+          <h2 id="exp-title" class="text-4xl md:text-5xl font-bold tracking-tight text-apple-text dark:text-white">
+            Expériences professionnelles.</h2>
+          <p class="mt-4 text-apple-secondary dark:text-apple-darksec text-lg max-w-xl mx-auto">Stages et missions
+            réalisés en entreprise, de la mise en production au support technique.</p>
+        </div>
+      </div>
+
+      <!-- Horizontal scroll track (Apple-style snap) -->
+      <div class="relative">
+        <!-- Fade edges -->
+        <div
+          class="pointer-events-none absolute left-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-r from-apple-bg dark:from-apple-darkbg to-transparent">
+        </div>
+        <div
+          class="pointer-events-none absolute right-0 top-0 bottom-0 w-16 z-10 bg-gradient-to-l from-apple-bg dark:from-apple-darkbg to-transparent">
+        </div>
+
+        <div id="exp-scroll"
+          class="flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-6 px-6 md:px-[max(1.5rem,calc(50vw-38rem))]"
+          style="-webkit-overflow-scrolling:touch; scrollbar-width:none; -ms-overflow-style:none;">
+
+          <!-- ── Stage 3ème – HYDAC ── -->
+          <article
+            class="exp-card snap-start flex-shrink-0 w-80 md:w-96 bg-apple-white dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6 shadow-sm flex flex-col">
+            <div class="flex items-start justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-gray-500/10 flex items-center justify-center text-2xl flex-shrink-0">
+                🔭</div>
+              <span
+                class="px-2 py-0.5 text-xs font-medium rounded-full bg-gray-500/10 text-gray-600 dark:text-gray-400 border border-gray-500/20">9
+                – 13 mars 2020 • 1 semaine</span>
+            </div>
+            <h3 class="text-lg font-semibold text-apple-text dark:text-white mb-1">Découverte IT Industrielle</h3>
+            <p class="text-sm font-medium text-apple-blue dark:text-blue-400 mb-3">HYDAC FRANCE — Forbach, Technopôle
+              Sud (57)</p>
+            <p class="text-sm text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-5">
+              Première immersion en milieu professionnel technique. Découverte des processus industriels, de
+              l'organisation d'une entreprise internationale et familiarisation avec l'environnement technique.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-auto">
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-apple-text/5 dark:bg-white/8 text-apple-secondary dark:text-apple-darksec border border-apple-text/6 dark:border-white/6">Observation</span>
+            </div>
+          </article>
+
+          <!-- ── Stage de seconde – Jean Moulin ── -->
+          <article
+            class="exp-card snap-start flex-shrink-0 w-80 md:w-96 bg-apple-white dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6 shadow-sm flex flex-col reveal reveal-delay-1">
+            <div class="flex items-start justify-between mb-4">
+              <div
+                class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-2xl flex-shrink-0">🏫
+              </div>
+              <span
+                class="px-2 py-0.5 text-xs font-medium rounded-full bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border border-indigo-500/20">17
+                mai – 28 juin 2021 • 6 semaines</span>
+            </div>
+            <h3 class="text-lg font-semibold text-apple-text dark:text-white mb-1">Administrateur Système & Réseau
+              (Junior)</h3>
+            <p class="text-sm font-medium text-apple-blue dark:text-blue-400 mb-3">Collège/Lycée Jean Moulin — Forbach
+              (57)</p>
+            <p class="text-sm text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-5">
+              Administration d'un parc informatique d'envergure scolaire. En charge de la maintenance matérielle (postes
+              clients, serveurs, systèmes d'impression) et de l'intégration réseau de nouveaux équipements (caméras IP).
+              Assistance technique de premier niveau.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-auto">
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-indigo-500/8 dark:bg-indigo-400/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/15">Maintenance
+                PC</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-indigo-500/8 dark:bg-indigo-400/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/15">Caméras
+                IP</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-indigo-500/8 dark:bg-indigo-400/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/15">Parc
+                informatique</span>
+            </div>
+          </article>
+
+          <!-- ── Stage RICO.57 ── -->
+          <article
+            class="exp-card snap-start flex-shrink-0 w-80 md:w-96 bg-apple-white dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6 shadow-sm flex flex-col reveal reveal-delay-1">
+            <div class="flex items-start justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-2xl flex-shrink-0">
+                🖥️</div>
+              <span
+                class="px-2 py-0.5 text-xs font-medium rounded-full bg-blue-500/10 text-blue-700 dark:text-blue-400 border border-blue-500/20">14
+                mars – 9 avril 2022 • 4 semaines</span>
+            </div>
+            <h3 class="text-lg font-semibold text-apple-text dark:text-white mb-1">Technicien Support & Hardware N1/N2
+            </h3>
+            <p class="text-sm font-medium text-apple-blue dark:text-blue-400 mb-3">RICO.57 — Sarreguemines (57)</p>
+            <p class="text-sm text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-5">
+              Support Hardware (Niveau 1 & 2) en atelier de réparation. Diagnostic et remplacement de composants
+              défectueux (cartes mères, dalles écrans, gestion thermique) sur PC et mobiles. Intervention ponctuelle sur
+              le front-end du système e-commerce interne.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-auto">
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-blue-500/8 dark:bg-blue-400/10 text-blue-700 dark:text-blue-300 border border-blue-500/15">Réparation
+                PC</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-blue-500/8 dark:bg-blue-400/10 text-blue-700 dark:text-blue-300 border border-blue-500/15">HTML/CSS</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-blue-500/8 dark:bg-blue-400/10 text-blue-700 dark:text-blue-300 border border-blue-500/15">Maintenance
+                matérielle</span>
+            </div>
+          </article>
+
+          <!-- ── Stage EGE ── -->
+          <article
+            class="exp-card snap-start flex-shrink-0 w-80 md:w-96 bg-apple-white dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6 shadow-sm flex flex-col reveal reveal-delay-2">
+            <div class="flex items-start justify-between mb-4">
+              <div
+                class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center text-2xl flex-shrink-0">⚡
+              </div>
+              <span
+                class="px-2 py-0.5 text-xs font-medium rounded-full bg-yellow-500/10 text-yellow-700 dark:text-yellow-400 border border-yellow-500/20">17
+                janvier – 11 février 2022 • 4 semaines</span>
+            </div>
+            <h3 class="text-lg font-semibold text-apple-text dark:text-white mb-1">Technicien installation électrique
+            </h3>
+            <p class="text-sm font-medium text-apple-blue dark:text-blue-400 mb-3">EGE (Équipement Général Électrique) —
+              Stiring-Wendel (57)</p>
+            <p class="text-sm text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-5">
+              Déploiement d'infrastructures courant fort/faible en milieu professionnel. Réalisation d'installations
+              électriques, tirage de câblage réseau, mise en place d'automatisations et préparation aux audits de
+              conformité (Consuel).
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-auto">
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-yellow-500/8 dark:bg-yellow-400/10 text-yellow-700 dark:text-yellow-300 border border-yellow-500/15">Électricité
+                bâtiment</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-yellow-500/8 dark:bg-yellow-400/10 text-yellow-700 dark:text-yellow-300 border border-yellow-500/15">Câblage</span>
+            </div>
+          </article>
+
+          <!-- ── Stage AMAZONE ── -->
+          <article
+            class="exp-card snap-start flex-shrink-0 w-80 md:w-96 bg-apple-white dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6 shadow-sm flex flex-col reveal reveal-delay-1">
+            <div class="flex items-start justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center text-2xl flex-shrink-0">
+                🌾</div>
+              <span
+                class="px-2 py-0.5 text-xs font-medium rounded-full bg-green-500/10 text-green-700 dark:text-green-400 border border-green-500/20">10
+                octobre – 5 novembre 2022 • 4 semaines</span>
+            </div>
+            <h3 class="text-lg font-semibold text-apple-text dark:text-white mb-1">Admin Système, Réseau &
+              Virtualisation (Junior)</h3>
+            <p class="text-sm font-medium text-apple-blue dark:text-blue-400 mb-3">AMAZONE-Werke — Forbach (57)</p>
+            <p class="text-sm text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-5">
+              Gestion de l'infrastructure logicielle et matérielle en environnement industriel critique. Mise en œuvre
+              d'environnements virtualisés (VMware Workstation), maintien en conditions opérationnelles du parc et
+              résolution d'incidents réseau.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-auto">
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-green-500/8 dark:bg-green-400/10 text-green-700 dark:text-green-300 border border-green-500/15">VMware</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-green-500/8 dark:bg-green-400/10 text-green-700 dark:text-green-300 border border-green-500/15">Réseau</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-green-500/8 dark:bg-green-400/10 text-green-700 dark:text-green-300 border border-green-500/15">Maintenance</span>
+            </div>
+          </article>
+
+          <!-- ── Stage CPAM Sarreguemines ── -->
+          <article
+            class="exp-card snap-start flex-shrink-0 w-80 md:w-96 bg-apple-white dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6 shadow-sm flex flex-col reveal reveal-delay-2">
+            <div class="flex items-start justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center text-2xl flex-shrink-0">
+                🏥</div>
+              <span
+                class="px-2 py-0.5 text-xs font-medium rounded-full bg-teal-500/10 text-teal-700 dark:text-teal-400 border border-teal-500/20">16
+                janvier – 11 février 2023 • 4 semaines</span>
+            </div>
+            <h3 class="text-lg font-semibold text-apple-text dark:text-white mb-1">Technicien Support & Masterisation
+              Poste de Travail</h3>
+            <p class="text-sm font-medium text-apple-blue dark:text-blue-400 mb-3">CPAM de Moselle — Sarreguemines
+              (57)</p>
+            <p class="text-sm text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-5">
+              Renouvellement partiel du parc machine via masterisation USB (Active Directory). Déploiement logiciel de
+              masse (Teledap), sécurisation des postes (Stormshield, Cisco Umbrella) et support utilisateur
+              multi-technologies.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-auto">
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-teal-500/8 dark:bg-teal-400/10 text-teal-700 dark:text-teal-300 border border-teal-500/15">Mastering
+                / AD</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-teal-500/8 dark:bg-teal-400/10 text-teal-700 dark:text-teal-300 border border-teal-500/15">Teledap</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-teal-500/8 dark:bg-teal-400/10 text-teal-700 dark:text-teal-300 border border-teal-500/15">Support
+                IT</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-teal-500/8 dark:bg-teal-400/10 text-teal-700 dark:text-teal-300 border border-teal-500/15">Stormshield</span>
+            </div>
+          </article>
+
+          <!-- ── BTS Stage 1 – CPAM ── -->
+          <article
+            class="exp-card snap-start flex-shrink-0 w-80 md:w-96 bg-apple-white dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6 shadow-sm flex flex-col reveal reveal-delay-2">
+            <div class="flex items-start justify-between mb-4">
+              <div
+                class="w-12 h-12 rounded-xl bg-apple-blue/10 flex items-center justify-center text-2xl flex-shrink-0">🏥
+              </div>
+              <span
+                class="px-2 py-0.5 text-xs font-medium rounded-full bg-apple-blue/10 text-apple-blue dark:text-blue-400 border border-apple-blue/20">13
+                mai – 14 juin 2024 • 5 semaines</span>
+            </div>
+            <h3 class="text-lg font-semibold text-apple-text dark:text-white mb-1">Technicien Infrastructure Siège &
+              Résolution d'Incidents</h3>
+            <p class="text-sm font-medium text-apple-blue dark:text-blue-400 mb-3">CPAM de la Moselle (Siège) — Metz
+              (57)</p>
+            <p class="text-sm text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-5">
+              Intégration au sein de l'équipe Support Infrastructure Siège. Industrialisation du processus
+              d'installation par masterisation PXE, résolution d'incidents utilisateurs (HelpDesk) et optimisation des
+              espaces de stockage partagés et droits d'accès réseau.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-auto">
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-apple-blue/8 dark:bg-blue-400/10 text-apple-blue dark:text-blue-300 border border-apple-blue/15">PXE
+                / Masterisation</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-apple-blue/8 dark:bg-blue-400/10 text-apple-blue dark:text-blue-300 border border-apple-blue/15">Support
+                IT</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-apple-blue/8 dark:bg-blue-400/10 text-apple-blue dark:text-blue-300 border border-apple-blue/15">Active
+                Directory</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-apple-blue/8 dark:bg-blue-400/10 text-apple-blue dark:text-blue-300 border border-apple-blue/15">Windows</span>
+            </div>
+          </article>
+
+          <!-- ── BTS Stage 2 – CPAM ── -->
+          <article
+            class="exp-card snap-start flex-shrink-0 w-80 md:w-96 bg-apple-white dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-2xl p-6 shadow-sm flex flex-col reveal reveal-delay-1">
+            <div class="flex items-start justify-between mb-4">
+              <div
+                class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-2xl flex-shrink-0">📡
+              </div>
+              <span
+                class="px-2 py-0.5 text-xs font-medium rounded-full bg-purple-500/10 text-purple-700 dark:text-purple-400 border border-purple-500/20">6
+                janvier – 7 février 2025 • 5 semaines</span>
+            </div>
+            <h3 class="text-lg font-semibold text-apple-text dark:text-white mb-1">Chargé de Déploiement & Intégration
+              IoT</h3>
+            <p class="text-sm font-medium text-apple-blue dark:text-blue-400 mb-3">CPAM de la Moselle (Siège) — Metz
+              (57)</p>
+            <p class="text-sm text-apple-secondary dark:text-apple-darksec leading-relaxed flex-1 mb-5">
+              Pilotage technique complet du déploiement IoT TouchOne. Responsabilité de la définition de l'architecture
+              serveur Windows jusqu'à la mise à jour des firmwares et procédures pour utilisateurs. Assistanat continu
+              au support N1/N2 global (remote via Zoom).
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-auto">
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-purple-500/8 dark:bg-purple-400/10 text-purple-700 dark:text-purple-300 border border-purple-500/15">TouchOne
+                / IoT</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-purple-500/8 dark:bg-purple-400/10 text-purple-700 dark:text-purple-300 border border-purple-500/15">Serveur
+                Windows</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-purple-500/8 dark:bg-purple-400/10 text-purple-700 dark:text-purple-300 border border-purple-500/15">Support
+                IT</span>
+              <span
+                class="px-2 py-0.5 text-xs rounded-lg bg-purple-500/8 dark:bg-purple-400/10 text-purple-700 dark:text-purple-300 border border-purple-500/15">Firmware</span>
+            </div>
+          </article>
+
+          <!-- ── Prochaine ── -->
+          <article
+            class="exp-card snap-start flex-shrink-0 w-80 md:w-96 bg-apple-white dark:bg-apple-darkcard border border-dashed border-black/12 dark:border-white/15 rounded-2xl p-6 flex flex-col items-center justify-center text-center min-h-64 reveal reveal-delay-2">
+            <span class="text-4xl mb-4">🚀</span>
+            <p class="text-sm font-semibold text-apple-text dark:text-white mb-2">Prochaine expérience</p>
+            <p class="text-xs text-apple-secondary dark:text-apple-darksec">En recherche active de stage / alternance
+              2026-2027.</p>
+          </article>
+
+        </div><!-- /exp-scroll -->
+
+        <!-- Scroll arrows -->
+        <div class="flex justify-center gap-3 mt-6 px-6">
+          <button id="exp-prev" aria-label="Précédent"
+            class="w-10 h-10 rounded-full bg-apple-white dark:bg-apple-darkcard border border-black/8 dark:border-white/10 flex items-center justify-center text-apple-secondary dark:text-apple-darksec hover:text-apple-text dark:hover:text-white hover:border-black/20 dark:hover:border-white/25 transition-all shadow-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button id="exp-next" aria-label="Suivant"
+            class="w-10 h-10 rounded-full bg-apple-white dark:bg-apple-darkcard border border-black/8 dark:border-white/10 flex items-center justify-center text-apple-secondary dark:text-apple-darksec hover:text-apple-text dark:hover:text-white hover:border-black/20 dark:hover:border-white/25 transition-all shadow-sm">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SAVOIR-ÊTRE & PASSIONS ===== -->
+    <section id="passions" class="py-32 px-6 bg-apple-bg dark:bg-apple-darkbg" aria-labelledby="passions-title">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16 reveal">
+          <p class="text-xs font-medium text-purple-600 dark:text-purple-400 uppercase tracking-widest mb-3">Savoir-être
+          </p>
+          <h2 id="passions-title" class="text-4xl md:text-5xl font-bold tracking-tight text-apple-text dark:text-white">
+            Au-delà de la technique.</h2>
+          <p class="mt-4 text-apple-secondary dark:text-apple-darksec text-lg max-w-xl mx-auto">
+            Mon équilibre, ma rigueur et ma capacité d'adaptation se forgent aussi à travers le sport et la création.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Adaptabilité -->
+          <article
+            class="reveal reveal-delay-1 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-3xl p-8 hover:-translate-y-2 transition-transform duration-300">
+            <div
+              class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-500 flex items-center justify-center text-white text-2xl shadow-lg shadow-blue-500/20 mb-6">
+              🧩
+            </div>
+            <h3 class="text-xl font-bold text-apple-text dark:text-white mb-3">Adaptation éclair</h3>
+            <p class="text-apple-secondary dark:text-apple-darksec leading-relaxed text-sm">
+              Face à l'imprévu ou à un nouvel environnement technique complexe, j'assimile rapidement les informations
+              pour devenir opérationnel en un temps record.
+            </p>
+          </article>
+
+          <!-- Sport & Endurance -->
+          <article
+            class="reveal reveal-delay-2 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-3xl p-8 hover:-translate-y-2 transition-transform duration-300">
+            <div
+              class="w-12 h-12 rounded-2xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center text-white text-2xl shadow-lg shadow-red-500/20 mb-6">
+              🥋
+            </div>
+            <h3 class="text-xl font-bold text-apple-text dark:text-white mb-3">Sport &amp; Endurance</h3>
+            <p class="text-apple-secondary dark:text-apple-darksec leading-relaxed text-sm">
+              Pratiquant de musculation, natation, course à pied, taekwondo et vélo. Le sport d'endurance m'enseigne une
+              disciple de fer et un dépassement de soi continu.
+            </p>
+          </article>
+
+          <!-- Musique & Créativité -->
+          <article
+            class="reveal reveal-delay-3 bg-apple-bg dark:bg-apple-darkcard border border-black/6 dark:border-white/8 rounded-3xl p-8 hover:-translate-y-2 transition-transform duration-300">
+            <div
+              class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-2xl shadow-lg shadow-purple-500/20 mb-6">
+              🎧
+            </div>
+            <h3 class="text-xl font-bold text-apple-text dark:text-white mb-3">Musique &amp; DJing</h3>
+            <p class="text-apple-secondary dark:text-apple-darksec leading-relaxed text-sm">
+              Producteur de musique et DJ. Cette passion cultive mon attention minutieuse au détail, mon sens de
+              l'organisation et ma capacité à interagir avec les autres.!
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="py-32 px-6 bg-apple-white dark:bg-apple-dark" aria-labelledby="contact-title">
+      <div class="max-w-2xl mx-auto text-center reveal">
+        <p class="text-xs font-medium text-apple-blue dark:text-blue-400 uppercase tracking-widest mb-3">Contact</p>
+        <h2 id="contact-title"
+          class="text-4xl md:text-5xl font-bold tracking-tight text-apple-text dark:text-white mb-5">Travaillons
+          ensemble.</h2>
+        <p class="text-apple-secondary dark:text-apple-darksec text-lg mb-10">Je suis ouvert à toute opportunité de
+          stage, alternance ou collaboration.</p>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#" onclick="window.location.href='mai'+'lto:'+'doryan.schouver'+'@'+'gmail.com'; return false;"
+            class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-apple-blue text-white text-sm font-medium hover:bg-apple-bluehov active:scale-95 transition-all shadow-md shadow-apple-blue/20">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+              aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            doryan.schouver@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/doryan-schouver-b4bba7295" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-apple-text/5 dark:bg-white/10 border border-apple-text/10 dark:border-white/15 text-apple-text dark:text-white text-sm font-medium hover:bg-apple-text/10 dark:hover:bg-white/15 active:scale-95 transition-all">
+            LinkedIn
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+              aria-hidden="true">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+              <polyline points="15 3 21 3 21 9" />
+              <line x1="10" y1="14" x2="21" y2="3" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+
+  <footer class="py-8 px-6 border-t border-black/6 dark:border-white/8 bg-apple-white dark:bg-apple-dark"
+    role="contentinfo">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-apple-secondary dark:text-apple-darksec">© 2026 Doryan Schouver. Tous droits réservés.</p>
+      <div class="flex items-center gap-4 text-xs text-apple-secondary dark:text-apple-darksec">
+        <a href="#" onclick="window.location.href='mai'+'lto:'+'doryan.schouver'+'@'+'gmail.com'; return false;"
+          class="hover:text-apple-blue dark:hover:text-blue-400 transition-colors">doryan.schouver@gmail.com</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/doryan-schouver-b4bba7295" target="_blank" rel="noopener noreferrer"
+          class="hover:text-apple-blue dark:hover:text-blue-400 transition-colors">LinkedIn</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://github.com/dodoschouv" target="_blank" rel="noopener noreferrer"
+          class="hover:text-apple-blue dark:hover:text-blue-400 transition-colors">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // --- Dark / Light mode ---
+    const root = document.documentElement;
+    const btn = document.getElementById('theme-toggle');
+    const stored = localStorage.getItem('theme');
+    const prefers = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    // Default: light (like Apple.com), honour system preference & stored preference
+    if (stored === 'dark' || (!stored && prefers)) {
+      root.classList.add('dark');
+    }
+
+    btn.addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // --- Header glassmorphism on scroll ---
+    const headerBg = document.getElementById('header-bg');
+    window.addEventListener('scroll', () => {
+      headerBg.style.opacity = window.scrollY > 10 ? '1' : '0';
+    }, { passive: true });
+
+    // --- Mobile menu ---
+    const mobileBtn = document.getElementById('mobile-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    mobileBtn.addEventListener('click', () => {
+      const open = !mobileNav.classList.contains('hidden');
+      mobileNav.classList.toggle('hidden', open);
+      mobileBtn.setAttribute('aria-expanded', String(!open));
+    });
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
+      mobileNav.classList.add('hidden');
+      mobileBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+    // --- Smooth scroll for anchor links ---
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    // --- Scroll reveal ---
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal, .reveal-scale').forEach(el => observer.observe(el));
+
+    // --- Frosted glass header on scroll ---
+    const siteHeader = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      siteHeader?.classList.toggle('header-scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // --- Projects tab switcher ---
+    const tabs = document.querySelectorAll('[role="tab"].proj-tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetId = tab.getAttribute('aria-controls');
+        tabs.forEach(t => {
+          const isActive = t === tab;
+          t.setAttribute('aria-selected', String(isActive));
+          if (isActive) {
+            t.classList.add('bg-apple-white', 'dark:bg-apple-darkbg', 'text-apple-text', 'dark:text-white', 'shadow-sm', 'border', 'border-black/6', 'dark:border-white/10');
+            t.classList.remove('text-apple-secondary', 'dark:text-apple-darksec');
+          } else {
+            t.classList.remove('bg-apple-white', 'dark:bg-apple-darkbg', 'text-apple-text', 'dark:text-white', 'shadow-sm', 'border', 'border-black/6', 'dark:border-white/10');
+            t.classList.add('text-apple-secondary', 'dark:text-apple-darksec');
+          }
+          const panel = document.getElementById(t.getAttribute('aria-controls'));
+          if (panel) panel.classList.toggle('hidden', !isActive);
+        });
+        // Re-trigger reveal on newly visible cards
+        document.querySelectorAll(`#${targetId} .reveal`).forEach(el => {
+          observer.observe(el);
+        });
+      });
+    });
+
+    // --- Expériences scroll arrows ---
+    (function () {
+      const track = document.getElementById('exp-scroll');
+      const prev = document.getElementById('exp-prev');
+      const next = document.getElementById('exp-next');
+      if (!track || !prev || !next) return;
+      const step = () => track.querySelector('.exp-card')?.offsetWidth + 20 || 340;
+      next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+      prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    })();
+  </script>
+</body>
+
+</html>
